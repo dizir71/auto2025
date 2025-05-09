@@ -1,0 +1,18 @@
+#!/bin/bash
+LOGFILE=~/Library/Logs/SUVUpload.log
+DATE=$(date "+%Y-%m-%d %H:%M:%S")
+echo "[$DATE] Starte Upload aus auto2025 mit venv/bin/python..." >> "$LOGFILE"
+
+~/Desktop/auto2025/venv/bin/python ~/Desktop/auto2025/nextcloud_upload_angebote.py >> "$LOGFILE" 2>&1
+
+if [ $? -eq 0 ]; then
+    MSG="✅ Upload erfolgreich"
+    echo "$MSG"
+else
+    MSG="❌ Fehler beim Upload"
+    echo "$MSG"
+fi
+
+echo "[$DATE] $MSG" >> "$LOGFILE"
+/usr/bin/osascript -e 'display notification "'$MSG'" with title "SUV Upload"'
+open -a TextEdit "$LOGFILE"

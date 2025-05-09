@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>SUV Fahrzeug-Dashboard</title>
+  <style>
+    body { font-family: sans-serif; margin: 2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    th, td { padding: 0.5rem; border: 1px solid #ccc; text-align: left; }
+    select, button { margin: 0.5rem 0; }
+    .pagination { margin-top: 1rem; }
+    .pagination button { margin-right: 0.25rem; }
+  </style>
+</head>
+<body>
+  <h1>SUV Fahrzeugübersicht</h1>
+
+  <label for="perPage">Fahrzeuge pro Seite:</label>
+  <select id="perPage">
+    <option value="5">5</option>
+    <option value="10" selected>10</option>
+    <option value="50">50</option>
+  </select>
+
+  <div id="data"></div>
+  <div class="pagination" id="pagination"></div>
+
+  <script>
+    let data = [];
+    let currentPage = 1;
+    let perPage = 10;
+
+    function renderTable() {
+      const tableDiv = document.getElementById("data");
+      const paginationDiv = document.getElementById("pagination");
+      tableDiv.innerHTML = "";
+      paginationDiv.innerHTML = "";
+
+      const start = (currentPage - 1) * perPage;
+      const end = start + perPage;
+      const pageData = data.slice(start, end);
+
+      let table = "<table><thead><tr><th>Fahrzeug</th><th>EZ</th><th>KM</th><th>Antrieb</th><th>Preis (€)</th><th>Bewertung</th><th>Link</th></tr></thead><tbody>";
+      for (const item of pageData) {
+        table += `<tr><td>${item.fahrzeug}</td><td>${item.ez}</td><td>${item.km}</td><td>${item.antrieb}</td><td>${item.preis}</td><td>${item.bewertung}</td><td><a href="${item.link}" target="_blank">Ansehen</a></td></tr>`;
+      }
+      table += "</tbody></table>";
+      tableDiv.innerHTML = table;
+
+      const pageCount = Math.ceil(data.length / perPage);
+      for (let i = 1; i <= pageCount; i++) {
+        const btn = document.createElement("button");
+        btn.innerText = i;
+        btn.onclick = () => { currentPage = i; renderTable(); };
+        paginationDiv.appendChild(btn);
+      }
+    }
+
+    document.getElementById("perPage").addEventListener("change", e => {
+      perPage = parseInt(e.target.value);
+      currentPage = 1;
+      renderTable();
+    });
+
+    fetch("../data/angebote.json")
+      .then(res => res.json())
+      .then(json => { data = json; renderTable(); })
+      .catch(() => { document.getElementById("data").innerText = "❌ Fehler beim Laden der Daten."; });
+  </script>
+</body>
+</html>

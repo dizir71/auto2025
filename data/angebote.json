@@ -1,0 +1,137 @@
+[
+  {
+    "fahrzeug": "VW Touareg",
+    "preis": 24380,
+    "ez": "2015-08",
+    "km": 140377,
+    "antrieb": "Diesel",
+    "bewertung": 7.7,
+    "link": "https://example.com/vw-touareg-0"
+  },
+  {
+    "fahrzeug": "VW Touareg",
+    "preis": 24371,
+    "ez": "2020-03",
+    "km": 154090,
+    "antrieb": "Elektro",
+    "bewertung": 9.2,
+    "link": "https://example.com/vw-touareg-1"
+  },
+  {
+    "fahrzeug": "Audi Q7",
+    "preis": 28173,
+    "ez": "2020-10",
+    "km": 167555,
+    "antrieb": "Elektro",
+    "bewertung": 9.3,
+    "link": "https://example.com/audi-q7-2"
+  },
+  {
+    "fahrzeug": "Mercedes ML 350",
+    "preis": 32587,
+    "ez": "2018-07",
+    "km": 175501,
+    "antrieb": "Diesel",
+    "bewertung": 6.7,
+    "link": "https://example.com/mercedes-ml-350-3"
+  },
+  {
+    "fahrzeug": "Lexus RX",
+    "preis": 33790,
+    "ez": "2021-06",
+    "km": 133010,
+    "antrieb": "Diesel",
+    "bewertung": 9.1,
+    "link": "https://example.com/lexus-rx-4"
+  },
+  {
+    "fahrzeug": "Mercedes ML 350",
+    "preis": 31266,
+    "ez": "2016-12",
+    "km": 91394,
+    "antrieb": "Elektro",
+    "bewertung": 6.7,
+    "link": "https://example.com/mercedes-ml-350-5"
+  },
+  {
+    "fahrzeug": "Audi Q7",
+    "preis": 19222,
+    "ez": "2017-02",
+    "km": 55190,
+    "antrieb": "Diesel",
+    "bewertung": 7.3,
+    "link": "https://example.com/audi-q7-6"
+  },
+  {
+    "fahrzeug": "Skoda Kodiaq",
+    "preis": 21459,
+    "ez": "2018-11",
+    "km": 50094,
+    "antrieb": "Elektro",
+    "bewertung": 6.7,
+    "link": "https://example.com/skoda-kodiaq-7"
+  },
+  {
+    "fahrzeug": "Skoda Kodiaq",
+    "preis": 29032,
+    "ez": "2016-07",
+    "km": 159808,
+    "antrieb": "Benzin",
+    "bewertung": 7.0,
+    "link": "https://example.com/skoda-kodiaq-8"
+  },
+  {
+    "fahrzeug": "Lexus RX",
+    "preis": 18350,
+    "ez": "2015-08",
+    "km": 70506,
+    "antrieb": "Elektro",
+    "bewertung": 9.7,
+    "link": "https://example.com/lexus-rx-9"
+  },
+  {
+    "fahrzeug": "VW Touareg",
+    "preis": 20327,
+    "ez": "2015-01",
+    "km": 55137,
+    "antrieb": "Elektro",
+    "bewertung": 9.1,
+    "link": "https://example.com/vw-touareg-10"
+  },
+  {
+    "fahrzeug": "Porsche Cayenne",
+    "preis": 19879,
+    "ez": "2016-07",
+    "km": 105053,
+    "antrieb": "Elektro",
+    "bewertung": 9.5,
+    "link": "https://example.com/porsche-cayenne-11"
+  },
+  {
+    "fahrzeug": "Audi Q7",
+    "preis": 28371,
+    "ez": "2018-05",
+    "km": 92674,
+    "antrieb": "Elektro",
+    "bewertung": 7.9,
+    "link": "https://example.com/audi-q7-12"
+  },
+  {
+    "fahrzeug": "Porsche Cayenne",
+    "preis": 23302,
+    "ez": "2020-07",
+    "km": 71039,
+    "antrieb": "Benzin",
+    "bewertung": 8.3,
+    "link": "https://example.com/porsche-cayenne-13"
+  },
+  {
+    "fahrzeug": "Skoda Kodiaq",
+    "preis": 32953,
+    "ez": "2015-12",
+    "km": 174780,
+    "antrieb": "Elektro",
+    "bewertung": 7.8,
+    "link": "https://example.com/skoda-kodiaq-14"
+  }
+]
