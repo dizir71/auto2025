@@ -1,0 +1,10 @@
+,Datum,Änderung
+2,2025-05-03,Live-Scraper-Zeitintervall auf 30 Min gesetzt
+3,2025-05-04,admin_dashboard.json erstellt
+4,2025-05-05,Neue Fahrzeugplattformen zur Crawlerliste hinzugefügt
+5,2025-05-06,Projektverzeichnisstruktur überarbeitet
+6,2025-05-07,start_server.sh und stop_server.sh implementiert
+7,2025-05-08,JSON-Feeds pro Plattform getrennt
+8,2025-05-09,Live-Datenanzeige im Frontend integriert
+9,2025-05-10,Admin-Funktionen zur Plattformsteuerung erweitert
+10,2025-05-11,Zeitsystem dauerhaft auf lokale Terminalzeit umgestellt

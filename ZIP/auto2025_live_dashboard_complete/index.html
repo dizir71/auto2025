@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>SUV Dashboard</title>
+  <link rel="stylesheet" href="dashboard/css/styles.css" />
+</head>
+<body>
+  <h1>SUV Dashboard</h1>
+  <button id="disableSampleBtn">Beispieldaten deaktivieren</button>
+  <div class="filter">
+    <label>Preis:</label><select id="preisfilter">
+      <option value="999999">Alle</option>
+      <option value="20000">bis 20.000 €</option>
+      <option value="25000">bis 25.000 €</option>
+      <option value="28000">bis 28.000 €</option>
+      <option value="32000">bis 32.000 €</option>
+    </select>
+    <label>KM:</label><input id="kmfilter" />
+    <label>Antrieb:</label><select id="antriebsfilter">
+      <option value="all">Alle</option><option value="Benzin">Benzin</option><option value="Diesel">Diesel</option><option value="Hybrid">Hybrid</option><option value="Elektro">Elektro</option>
+    </select>
+    <label>Baujahr ab:</label><input id="ezfilter" />
+  </div>
+  <div id="angebote-liste"></div>
+  <div id="error-box" style="display:none;">⚠️ Fehler beim Laden</div>
+  <script src="dashboard/js/main.js"></script>
+</body>
+</html>

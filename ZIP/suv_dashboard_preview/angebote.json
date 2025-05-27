@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SUV-Dashboard</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>SUV-Dashboard</h1>
+    <button id="disableSampleBtn">Beispieldaten deaktivieren</button>
+  </header>
+
+  <div class="filter">
+    <label for="preisfilter">Preis:</label>
+    <select id="preisfilter">
+      <option value="999999">Alle</option>
+      <option value="20000">bis 20.000 €</option>
+      <option value="25000">bis 25.000 €</option>
+      <option value="28000">bis 28.000 €</option>
+      <option value="32000">bis 32.000 €</option>
+    </select>
+    <label for="kmfilter">KM:</label>
+    <input type="number" id="kmfilter" placeholder="z. B. 60000" />
+    <label for="antriebsfilter">Antrieb:</label>
+    <select id="antriebsfilter">
+      <option value="all">Alle</option>
+      <option value="Benzin">Benzin</option>
+      <option value="Diesel">Diesel</option>
+      <option value="Hybrid">Hybrid</option>
+      <option value="Elektro">Elektro</option>
+    </select>
+    <label for="ezfilter">Baujahr ab:</label>
+    <input type="number" id="ezfilter" placeholder="z. B. 2018" />
+  </div>
+
+  <div id="angebote-liste"></div>
+
+  <div class="status" id="project-status"></div>
+
+  <div id="error-box" class="error-box" style="display:none;">⚠️ Fehler beim Laden der Daten!</div>
+  <div id="offline-box" class="offline-box" style="display:none;">📡 Keine Internetverbindung erkannt!</div>
+
+  <script src="./js/main.js"></script>
+  <script>
+    document.getElementById("disableSampleBtn").addEventListener("click", () => {
+      localStorage.setItem("useSampleData", "false");
+      location.reload();
+    });
+
+    const useSample = localStorage.getItem("useSampleData") !== "false";
+    const angebotePath = useSample ? "./data/angebote.json" : "../../suv_crawler/angebote.json";
+
+    async function ladeDaten() {
+      try {
+        const res = await fetch(angebotePath, { cache: 'no-store' });
+        const data = await res.json();
+        document.getElementById("angebote-liste").innerText = JSON.stringify(data, null, 2);
+      } catch (err) {
+        document.getElementById("error-box").style.display = 'block';
+        console.error("Fehler beim Laden der Daten:", err);
+      }
+    }
+
+    ladeDaten();
+  </script>
+</body>
+</html>

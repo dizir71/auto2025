@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Live Fahrzeugangebote</title>
+  <style>
+    body { font-family: sans-serif; background: #f0f0f0; padding: 2rem; }
+    table { width: 100%; border-collapse: collapse; background: white; }
+    th, td { padding: 0.5rem; border: 1px solid #ccc; text-align: left; }
+    th { background: #007BFF; color: white; }
+    tr:nth-child(even) { background: #f9f9f9; }
+  </style>
+</head>
+<body>
+  <h1>Live SUV-Angebote</h1>
+  <table id="angebote">
+    <thead>
+      <tr>
+        <th>Fahrzeug</th>
+        <th>Preis (€)</th>
+        <th>Erstzulassung</th>
+        <th>KM</th>
+        <th>Antrieb</th>
+        <th>Bewertung</th>
+        <th>Link</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <script>
+    fetch("data/angebote.json")
+      .then(r => r.json())
+      .then(data => {
+        const tbody = document.querySelector("#angebote tbody");
+        data.forEach(a => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${a.fahrzeug}</td>
+            <td>${a.preis}</td>
+            <td>${a.ez}</td>
+            <td>${a.km}</td>
+            <td>${a.antrieb}</td>
+            <td>${a.bewertung}</td>
+            <td><a href="${a.link}" target="_blank">Ansehen</a></td>
+          `;
+          tbody.appendChild(row);
+        });
+      })
+      .catch(err => {
+        document.body.innerHTML = "<h2>❌ Fehler beim Laden der Daten.</h2>";
+        console.error(err);
+      });
+  </script>
+</body>
+</html>
